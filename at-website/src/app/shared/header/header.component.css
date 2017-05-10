@@ -1,0 +1,20 @@
+#header {
+  margin-top: 10px;
+}
+.container {
+  clear: both;
+}
+.logo-header {
+  float: left;
+}
+.nav-header {
+  float: right;
+}
+.nav-item {
+  list-style: none;
+  float: left;
+}
+a {
+  text-decoration: none;
+  font-size: 12px;
+}

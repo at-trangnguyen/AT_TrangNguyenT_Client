@@ -1,0 +1,50 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "name": "introduce myself",
+      "description": "About my life",
+      "detail": "hello, my name is Tnkt",
+      "created_at": "09/05/2017 10:00:00",
+      "updated_at": "09/05/2017 10:00:00",
+      "picture": "picture.png",
+      "category": {
+        "id": "1",
+        "name": "Ruby on Rails"
+      },
+      "user": {
+        "id": "2",
+        "firstname": "Trang",
+        "lastname": "Nguyen",
+        "email": "trangnguyen@gmail.com",
+        "avatar": "avatar.png",
+        "following": "true"
+      },
+      "favorited": false,
+      "favorites_count": "1"
+    },
+    {
+      "id": "2",
+      "name": "introduce myself",
+      "description": "About my life",
+      "detail": "hello, my name is Tnkt",
+      "created_at": "09/05/2017 10:00:00",
+      "updated_at": "09/05/2017 10:00:00",
+      "picture": "picture.png",
+      "category": {
+        "id": "1",
+        "name": "Ruby on Rails"
+      },
+      "user": {
+        "id": "2",
+        "firstname": "Trang",
+        "lastname": "Nguyen",
+        "email": "trangnguyen@gmail.com",
+        "avatar": "avatar.png",
+        "following": "true"
+      },
+      "favorited": false,
+      "favorites_count": "1"
+    }
+  ]
+}

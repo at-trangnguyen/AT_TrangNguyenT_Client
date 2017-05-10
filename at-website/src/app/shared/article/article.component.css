@@ -1,0 +1,30 @@
+.article {
+  margin-top: 10px;
+  border-top: 1px solid #bfac8a;
+}
+.article-top{
+  margin: 10px 0;
+}
+.info {
+  display: inline-block;
+}
+.name-author {
+  display: block;
+}
+.date {
+  display: block;
+}
+.btn-like {
+  float: right;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+img {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  vertical-align: middle;
+  border-radius: 30px;
+}

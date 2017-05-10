@@ -1,0 +1,16 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Ruby on Rails"
+    },
+    {
+      "id": "2",
+      "name": "Angular"
+    },
+    {
+      "id": "3",
+      "name": "React"
+    }
+  ]
+}
