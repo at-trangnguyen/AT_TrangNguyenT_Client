@@ -1,3 +1,49 @@
-<p>
-  edit-user works!
-</p>
+<div class="edit-user-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Your Settings</h1>
+        <div [hidden]="submitted">
+          <form [formGroup]="editUserForm" (ngSubmit)="updateUser()">
+            <div class="form-group">
+              <label for="avatar">Avatar: </label>
+              <input type="file" name="img">
+            </div>
+            <div class="form-group">
+              <label for="firstname">First Name: </label>
+              <input type="text" name="firstname" class="form-control" formControlName="first_name">
+              <span class="error-msg text-danger">
+               Firstname is required (maximum 10 characters) !
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name: </label>
+              <input type="text" name="lastname" class="form-control" formControlName="last_name">
+              <span class="error-msg text-danger">
+               Lastname is required (maximum 10 characters) !
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="birthday">Birthday: </label>
+              <input type="date" name="birthday" class="form-control" formControlName="birthday">
+              <span class="error-msg text-danger">
+               Firstname is required (maximum 10 characters) !
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="Gender">Gender: </label>
+              <label class="radio-inline"><input type="radio" value="female" name="gender" formControlName="gender">Female</label>
+              <label class="radio-inline"><input type="radio" value="male" name="gender" formControlName="gender">Male</label>
+              <span class="error-msg text-danger">
+               Firstname is required (maximum 10 characters) !
+              </span>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-lg btn-primary" [disabled]="!editUserForm.valid">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

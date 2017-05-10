@@ -1,20 +1,25 @@
-#header {
-  margin-top: 10px;
+a {
+  text-decoration: none;
+  color: #000;
+}
+li {
+  list-style: none;
 }
 .container {
   clear: both;
 }
 .logo-header {
   float: left;
+  margin-right: 30px;
 }
-.nav-header {
-  float: right;
+.logo-header img {
+  display: inline-block;
+  vertical-align: middle;
 }
-.nav-item {
-  list-style: none;
+.form-group {
   float: left;
+  padding-top: 10px;
 }
-a {
-  text-decoration: none;
-  font-size: 12px;
+.nav li {
+  text-transform: capitalize;
 }

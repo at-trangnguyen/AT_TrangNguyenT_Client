@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core'
 import {HeaderComponent} from './header/header.component';
 import { ArticleComponent } from './article/article.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
-import { SignupComponent } from './signup/signup.component'
+import { NewUserComponent } from './new-user/new-user.component'
 
 @NgModule({
   imports: [],
@@ -10,7 +10,7 @@ import { SignupComponent } from './signup/signup.component'
     HeaderComponent,
     ArticleComponent,
     EditUserComponent,
-    SignupComponent
+    NewUserComponent
   ],
   exports: [
     HeaderComponent
