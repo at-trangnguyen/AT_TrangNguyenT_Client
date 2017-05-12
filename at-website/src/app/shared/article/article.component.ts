@@ -16,7 +16,6 @@ export class ArticleComponent implements OnInit {
     this._article.getAllArticle()
     .subscribe((data: any) => {
       this.articles = data.articles;
-      console.log(data);
     })
   }
 

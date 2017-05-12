@@ -1,0 +1,23 @@
+a {
+  text-decoration: none;
+  color: #000;
+}
+li {
+  list-style: none;
+}
+.category {
+  border-top: 4px double #d8d8d8;
+  border-bottom: 4px double #d8d8d8;
+  margin: 20px 0;
+}
+.main-category {
+  text-align: center;
+}
+.category-item {
+  height: 49px;
+  display: inline-block;
+  margin: 0 40px;
+}
+.category-item a {
+  line-height: 58px;
+}

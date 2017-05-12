@@ -1,0 +1,26 @@
+.login-page h1 {
+  text-align: center;
+}
+.login-page a {
+  margin-left: 45%;
+}
+.col-md-6 {
+  margin-left: 25%;
+  margin-top: 20px;
+}
+.form-group .btn {
+  margin-left: 42%;
+}
+.form-group input.ng-invalid.ng-dirty {
+  border-left: 7px solid #F00;
+}
+.form-group input.ng-valid {
+  border-left: 7px solid green;
+}
+.form-group input.ng-invalid.ng-dirty + .error-msg {
+  display: inline-block;
+  font-size: 12px;
+}
+.form-group .error-msg {
+  display: none;
+}
