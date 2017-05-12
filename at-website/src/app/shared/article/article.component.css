@@ -4,11 +4,19 @@
 }
 .img-thumbnail {
   float: left;
-  width: 19%;
-  margin:0 20px 10px 0;
+  width: 25%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
 }
 .img-thumbnail img {
+  width: 100%;
   height: 210px;
+}
+.article-preview {
+  float: left;
+  width: 75%;
+  padding: 10px;
 }
 .author-info {
   margin-bottom: 12px;
