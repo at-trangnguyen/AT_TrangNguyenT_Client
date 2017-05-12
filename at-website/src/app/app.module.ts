@@ -14,6 +14,8 @@ import { NewUserComponent } from './shared/new-user/new-user.component';
 import { CategoryComponent } from './feature/category/category.component'
 import {CategoryService} from './shared/services/category.service';
 import { LoginComponent } from './auth/login/login.component'
+import { AuthService } from './shared/services/auth.service'
+import { PaginationComponent } from './shared/pagination/pagination.component';
 
 const routes: Routes = [
  { path: 'home', component: HomeComponent },
@@ -34,7 +36,8 @@ export const routing = RouterModule.forRoot(routes);
     EditUserComponent,
     NewUserComponent,
     CategoryComponent,
-    LoginComponent
+    LoginComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ export const routing = RouterModule.forRoot(routes);
     HttpModule,
     routing
   ],
-  providers: [ArticleService, CategoryService],
+  providers: [ArticleService, CategoryService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,9 @@
-import {NgModule} from '@angular/core'
-import {HeaderComponent} from './header/header.component';
+import { NgModule } from '@angular/core'
+import { HeaderComponent } from './header/header.component';
 import { ArticleComponent } from './article/article.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
-import { NewUserComponent } from './new-user/new-user.component'
+import { NewUserComponent } from './new-user/new-user.component';
+import { PaginationComponent } from './pagination/pagination.component'
 
 @NgModule({
   imports: [],
@@ -10,7 +11,8 @@ import { NewUserComponent } from './new-user/new-user.component'
     HeaderComponent,
     ArticleComponent,
     EditUserComponent,
-    NewUserComponent
+    NewUserComponent,
+    PaginationComponent
   ],
   exports: [
     HeaderComponent
