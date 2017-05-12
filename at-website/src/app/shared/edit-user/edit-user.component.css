@@ -1,0 +1,18 @@
+.col-md-6 {
+  margin-left: 25%;
+}
+h1 {
+  text-align: center;
+}
+.btn {
+  margin-left: 42%;
+}
+.form-group input.ng-invalid.ng-dirty {
+  border-color: #F00;
+}
+.form-group input.ng-invalid.ng-dirty + .error-msg {
+  display: inline-block;
+}
+.form-group .error-msg {
+  display: none;
+}

@@ -1,0 +1,30 @@
+.article-item {
+  margin-bottom: 20px;
+  border-bottom: 5px solid #f5f5f5;
+}
+.img-thumbnail {
+  float: left;
+  width: 19%;
+  margin:0 20px 10px 0;
+}
+.img-thumbnail img {
+  height: 210px;
+}
+.author-info {
+  margin-bottom: 12px;
+}
+.author-name {
+  margin-right: 12px;
+}
+.date {
+  margin-right: 12px;
+}
+.description {
+  line-height: 1.5;
+}
+.btn-like {
+  float: right;
+}
+.readmore {
+  float: right;
+}

@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "tnkttruong@gmail.com",
+      "first_name": "Truong",
+      "last_name": "Cong Trang",
+      "role": "1",
+      "avatar": "avatar.png",
+      "birthday": "21/11/1994",
+      "sex": "1",
+    },
+    {
+      "id": "2",
+      "email": "trangnguyen@gmail.com",
+      "first_name": "Nguyen",
+      "last_name": "Thi Trang",
+      "role": "1",
+      "avatar": "avatar.png",
+      "birthday": "21/11/1994",
+      "sex": "0",
+    }
+  ] 
+}
