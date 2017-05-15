@@ -3,22 +3,26 @@
     {
       "id": "1",
       "email": "tnkttruong@gmail.com",
+      "password": "12345678",
       "first_name": "Truong",
       "last_name": "Cong Trang",
       "role": "1",
       "avatar": "avatar.png",
       "birthday": "21/11/1994",
       "sex": "1",
+      "token": "aaaaaaa"
     },
     {
       "id": "2",
       "email": "trangnguyen@gmail.com",
+      "password": "1",
       "first_name": "Nguyen",
       "last_name": "Thi Trang",
       "role": "1",
       "avatar": "avatar.png",
       "birthday": "21/11/1994",
       "sex": "0",
+      "token": "aacccccc"
     }
   ] 
 }
