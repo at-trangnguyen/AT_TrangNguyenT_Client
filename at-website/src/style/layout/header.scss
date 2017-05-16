@@ -1,1 +1,32 @@
-header.scss
+.header-top {
+  background-color: $color-c;
+  margin-bottom: 5px;
+  .social { 
+    margin: 0;
+    padding: 10px 0;
+    float: right;
+    li {
+      float: left;
+      margin-left: 20px;
+    }
+    a {
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+}
+.header-bottom {
+  .logo-header {
+    float: left;
+    margin-right: 30px;
+  }
+  .form-group {
+    float: left;
+    padding-top: 10px;
+  }
+  .nav {
+    li {
+      text-transform: capitalize;
+    }
+  }
+}

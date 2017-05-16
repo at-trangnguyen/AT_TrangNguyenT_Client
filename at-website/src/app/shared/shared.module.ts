@@ -3,7 +3,13 @@ import { HeaderComponent } from './header/header.component';
 import { ArticleComponent } from './article/article.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { NewUserComponent } from './new-user/new-user.component';
-import { PaginationComponent } from './pagination/pagination.component'
+import { PaginationComponent } from './pagination/pagination.component';
+import { FavoriteArticleComponent } from './favorite-article/favorite-article.component';
+import { PopularTagComponent } from './popular-tag/popular-tag.component';
+import { BtnLikeComponent } from './btn-like/btn-like.component';
+import { FooterComponent } from './footer/footer.component';
+import { BtnFollowComponent } from './btn-follow/btn-follow.component';
+import { FormArticleComponent } from './form-article/form-article.component'
 
 @NgModule({
   imports: [],
@@ -12,7 +18,13 @@ import { PaginationComponent } from './pagination/pagination.component'
     ArticleComponent,
     EditUserComponent,
     NewUserComponent,
-    PaginationComponent
+    PaginationComponent,
+    FavoriteArticleComponent,
+    PopularTagComponent,
+    BtnLikeComponent,
+    FooterComponent,
+    BtnFollowComponent,
+    FormArticleComponent
   ],
   exports: [
     HeaderComponent

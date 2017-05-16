@@ -1,30 +1,67 @@
 <div id="home-page">
   <div class="container">
     <div class="banner">
-      <h1>AT BLogs</h1>
+      <h1 class="banner-title">Chan Chan</h1>
     </div>
     <app-category></app-category>
-    <div class="row">
-      <div class="col-md-9 main-content">
-        <app-article></app-article>
-        <app-pagination></app-pagination>
-      </div>
-      <aside class="col-md-3 sidebar">
-        <div class="favorite-article">
-          <div class="panel panel-default">
-            <div class="panel-heading">Favorite Article</div>
-            <div class="panel-body">
-              
+    <div class="col-md-9 main-content">
+      <app-article></app-article>
+      <app-pagination></app-pagination>
+    </div>
+    <aside class="col-md-3 sidebar">
+      <app-favorite-article></app-favorite-article>
+      <app-popular-tag></app-popular-tag> 
+    </aside>
+  </div>
+  <div class="team">
+      <div class="container">
+        <h3 class="div-team-title">About Our Team</h3>  
+        <div class="team-grids">
+          <div class="col-md-3 team-grid">
+            <div class="ih-item circle effect1">
+              <div class="spinner"></div>
+              <div class="img"><img src="/assets/images/trangtc.png" alt=" " class="img-responsive" /></div>
+              <div class="info">
+                <div class="info-back">
+                  <h4>Ruby Team</h4>
+                  <p>Asian Tech</p>
+                </div>
+              </div>
             </div>
+            <h4>Trang Truong C.</h4>
+            <h6>"When life gives you a hundred reasons to cry, show life that you have a thousand reasons to smile."</h6>
+            <div class="social-icons team-icons">
+              <ul>
+                <li><a href="#" class="fa fa-facebook"> </a></li>
+                <li><a href="#" class="fa fa-twitter"> </a></li>
+                <li><a href="#" class="fa fa-google"> </a></li>
+              </ul>
+            </div> 
+          </div>
+          <div class="col-md-3 team-grid">
+            <div class="ih-item circle effect1">
+              <div class="spinner"></div>
+              <div class="img"><img src="/assets/images/trangnt.png" alt=" " class="img-responsive" /></div>
+              <div class="info">
+                <div class="info-back">
+                  <h4>FE Team</h4>
+                  <p>Asian Tech</p>
+                </div>
+              </div>
+            </div>
+            <h4>Trang Nguyen T.</h4>
+            <h6>"Dream what you want to dream, go where you want to go,
+              be what you want to be. Because you have only one life and
+              one chance to do all the things you want to do."</h6>
+            <div class="social-icons team-icons">
+              <ul>
+                <li><a href="#" class="fa fa-facebook"> </a></li>
+                <li><a href="#" class="fa fa-twitter"> </a></li>
+                <li><a href="#" class="fa fa-google"> </a></li>
+              </ul>
+            </div> 
           </div>
         </div>
-        <div class="popular-tag">
-          <div class="panel panel-default">
-            <div class="panel-heading">Popular Tag</div>
-            <div class="panel-body"></div>
-          </div>
-        </div>   
-      </aside>
+      </div>
     </div>
-  </div>
 </div>

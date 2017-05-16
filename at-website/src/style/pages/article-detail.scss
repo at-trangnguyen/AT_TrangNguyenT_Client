@@ -1,0 +1,76 @@
+
+.article-detail-page {
+  .article-name {
+    text-align: center;
+    font-style: italic;
+    margin-top: 0;
+  }
+  .article-info {
+    text-align: center;
+    color: #9d9d9d;
+    .author-name {
+      font-style: italic;
+    }
+  }
+  .article-image {
+    width: 50%;
+    margin: 4% 27%;
+  }
+  .article-content {
+    text-indent: 20px;
+    margin: 15px 0 30px;
+  }
+  .btn-like {
+    float: left;
+  }
+  .share-post {
+    li {
+      float: left;
+      width: 25%;
+      margin-left: 43px;
+    }
+  }
+  .btn-social {
+    position: relative;
+    padding-left: 44px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $color-d;
+    border-color: rgba(0,0,0,0.2);
+  }
+  .fa-btn-share {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    line-height: 34px;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.2);
+  }
+  .btn-facebook {
+    background-color: #3b5998;
+  }
+  .btn-twitter {
+    background-color: #55acee;
+  }
+  .btn-google {
+    background-color: #dd4b39;
+  }
+  .author {
+    margin-bottom: 90px;
+  }
+  .social-icons.team-icons {
+    bottom: -85px;
+  }
+  .team-grid {
+    &:hover {
+      .social-icons.team-icons {
+        bottom: -75px;
+      }
+    }
+  }
+}

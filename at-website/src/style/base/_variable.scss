@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Conv_Cookie-Regular';
+  src: url('/assets/fonts/Cookie-Regular.eot');
+  src: local('☺'), 
+  url('/assets/fonts/Cookie-Regular.woff') format('woff'), 
+  url('/assets/fonts/Cookie-Regular.ttf') format('truetype'), 
+  url('/assets/fonts/Cookie-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+$font-family: 'Conv_Cookie-Regular', sans-serif;
+
+$color-a: #000000;
+$color-b: #f44639;
+$color-c: #333333;
+$color-d: #fff;
+$color-border: #d8d8d8;

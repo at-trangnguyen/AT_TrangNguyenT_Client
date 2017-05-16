@@ -1,0 +1,11 @@
+.div-label {
+  font-size: 15px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  height: 40px;
+  padding: 7px;
+  border-top: 4px double $color-border;
+  border-bottom: 4px double $color-border;
+  text-align: center;
+  margin-bottom: 10px;
+}
