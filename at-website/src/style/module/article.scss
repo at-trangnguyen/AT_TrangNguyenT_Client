@@ -1,0 +1,57 @@
+.article-item {
+  margin-bottom: 20px;
+  border-bottom: 5px solid $color-border;
+}
+.article-name {
+  font-weight: bold;
+}
+.img-thumbnail {
+  float: left;
+  width: 25%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  img {
+    height: 210px;
+  }
+}
+.article-preview {
+  float: left;
+  width: 68%;
+  padding: 10px;
+  .author-info {
+    font-size: 16px;
+    font-style: italic;
+    color: $color-b;
+    margin-bottom: 12px;
+    .author-name {
+      margin-right: 12px;
+    }
+    .date {
+      margin-right: 12px;
+    }
+  }
+  .article-preview-content {
+    .description {
+      color: #9d9d9d;
+      line-height: 1.5;
+      text-indent: 20px;
+    }
+    .readmore {
+      float: right;
+      font-size: 13px;
+      color: white;
+      background: $color-c;
+      padding: 15px 15px;
+      letter-spacing: 1px;
+      transition: 0.5s all;
+      line-height: 1.2;
+      &:hover {
+        background: $color-b;
+      }
+    }
+  }
+}
+.btn-like {
+  float: right;
+}

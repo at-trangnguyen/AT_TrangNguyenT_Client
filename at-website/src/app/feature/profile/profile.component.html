@@ -1,0 +1,40 @@
+<div class="profile">
+	<div class="container">
+    <app-category></app-category>
+    <div class="col-md-9 main-content">
+      <app-article></app-article>
+      <app-pagination></app-pagination>
+    </div> 
+    <aside class="col-md-3 sidebar">
+      <div class="author">
+        <div class="div-label">
+          <span>My Profile</span>
+        </div>
+        <div class="div-content team-grid">
+          <div class="ih-item circle effect1">
+              <div class="spinner"></div>
+              <div class="img"><img src="/assets/images/t1.jpg" alt=" " class="img-responsive" /></div>
+              <div class="info">
+                <div class="info-back">
+                  <h4>Trang NT.</h4>
+                  <p>10/11/1994</p>
+                </div>
+              </div>
+            </div>
+            <app-btn-follow class="hidden"></app-btn-follow>
+              <a routerLink="/edit-profile" routerLinkActive="active" class="btn btn-edit">
+                <span class="glyphicon glyphicon-cog"></span>
+                <span> Setting</span>
+              </a>
+            <div class="social-icons team-icons">
+              <ul>
+                <li><a href="#" class="fa fa-facebook"> </a></li>
+                <li><a href="#" class="fa fa-twitter"> </a></li>
+                <li><a href="#" class="fa fa-google"> </a></li>
+              </ul>
+            </div> 
+        </div>
+      </div>
+    </aside>
+  </div> 
+</div>
