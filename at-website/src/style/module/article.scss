@@ -4,6 +4,7 @@
 }
 .article-name {
   font-weight: bold;
+  text-transform: capitalize;
 }
 .img-thumbnail {
   float: left;
@@ -33,7 +34,7 @@
   }
   .article-preview-content {
     .description {
-      color: #9d9d9d;
+      color: $color-c;
       line-height: 1.5;
       text-indent: 20px;
     }

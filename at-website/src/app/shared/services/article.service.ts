@@ -10,10 +10,9 @@ export class ArticleService {
   constructor(private _http: Http) {}
 
   getAllArticle() : Observable<any> {
-    return this._http.get('http://172.16.29.229:3000/api/v1/home')
+    return this._http.get('./data/articles.json')
     .map((res: any) => {
-      let x = res.json();
-      console.log(x);
+      return res.json();
     });
   }
 }

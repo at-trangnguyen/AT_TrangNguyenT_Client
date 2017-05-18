@@ -1,22 +1,22 @@
-<div class="article">
+<div class="article" *ngFor="let item of articles">
   <div class="article-item  clearfix">
     <h3 class="article-name">
-      <a routerLink="/article" routerLinkActive="active">Outstanding Blogger template for developing gadgets news</a>
+      <a routerLink="['/article', articles.id]" routerLinkActive="active">{{item.name}}</a>
     </h3>
     <div class="img-thumbnail">
       <a href="">
-        <img src="../../../assets/images/image1.jpg" alt="Outstanding Blogger template for developing gadgets news">
+        <img src="{{item.picture | picture}}" alt="{{item.name}}">
       </a>
     </div>
     <div class="article-preview">
       <div class="author-info clearfix">
         <span class="author-name">
-          <a routerLink="/profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Trang Nguyen</a>
+          <a routerLink="/profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>{{item.user.firstname}} {{item.user.lastname}}</a>
         </span>
-        <span class="date"> 07/05/2017</span>
+        <span class="date">{{item.created_at}}</span>
       </div>
       <div class="article-preview-content clearfix">
-        <p class="description"> Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra urna. Morbi dui lectus, pharetra nec elementum eget, vulputate ut nisi. Aliquam accumsan, nulla sed feugiat vehicula, lacus justo semper libero, quis...Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra urna. Morbi dui lectus, pharetra nec elementum eget, vulputate ut nisi. Aliquam accumsan, nulla sed feugiat vehicula, lacus justo semper libero, quis...</p>
+        <p class="description">{{item.description}}</p>
         <a routerLink="/article" routerLinkActive="active" class="readmore">
           Read More
           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
@@ -24,57 +24,5 @@
       </div>
     </div>
     <app-btn-like class="btn-like"></app-btn-like>
-  </div>
-  <div class="article-item  clearfix">
-    <h3 class="article-name">
-      <a href="">Outstanding Blogger template for developing gadgets news</a>
-    </h3>
-    <div class="img-thumbnail">
-      <a href="">
-        <img src="../../../assets/images/image4.jpg" alt="Outstanding Blogger template for developing gadgets news">
-      </a>
-    </div>
-    <div class="article-preview">
-      <div class="author-info  clearfix">
-        <span class="author-name">
-          <a href=""><span class="glyphicon glyphicon-user"></span> Trang Nguyen</a>
-        </span>
-        <span class="date"> 07/05/2017</span>
-      </div>
-      <div class="article-preview-content clearfix">
-        <p class="description"> Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...</p>
-        <a href="#" class="readmore">
-          Read More
-          <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-        </a>
-      </div>
-    </div>
-    <app-btn-like></app-btn-like>
-  </div>
-  <div class="article-item  clearfix">
-    <h3 class="article-name">
-      <a href="">Outstanding Blogger template for developing gadgets news</a>
-    </h3>
-    <div class="img-thumbnail">
-      <a href="">
-        <img src="../../../assets/images/image3.jpg" alt="Outstanding Blogger template for developing gadgets news"> 
-      </a>
-    </div>
-    <div class="article-preview">
-      <div class="author-info  clearfix">
-        <span class="author-name">
-          <a href=""><span class="glyphicon glyphicon-user"></span> Trang Nguyen</a>
-        </span>
-        <span class="date"> 07/05/2017</span>
-      </div>
-      <div class="article-preview-content clearfix">
-        <p class="description"> Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...</p>
-        <a href="#" class="readmore">
-          Read More
-          <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-        </a>
-      </div>
-    </div>
-    <app-btn-like></app-btn-like>
   </div>
 </div>  
