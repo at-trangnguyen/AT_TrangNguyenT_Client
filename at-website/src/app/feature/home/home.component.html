@@ -6,7 +6,9 @@
     <app-category></app-category>
     <div class="col-md-9 main-content">
       <app-article></app-article>
-      <app-pagination></app-pagination>
+      <pagination [totalItems]="bigTotalItems" [(ngModel)]="bigCurrentPage" [maxSize]="maxSize" class="pagination-sm"
+              [boundaryLinks]="true" [rotate]="false" (numPages)="numPages = $event"></pagination>
+      <!-- <app-pagination></app-pagination> -->
     </div>
     <aside class="col-md-3 sidebar">
       <app-favorite-article></app-favorite-article>

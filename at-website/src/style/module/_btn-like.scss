@@ -1,0 +1,14 @@
+.btn-like {
+  background: transparent;
+  border: 2px solid #d8d8d8;
+  &:hover {
+    background: $color-b;
+    border-color: $color-b;
+   .glyphicon-heart-custom {
+    color: $color-d;
+    }
+  }
+  .glyphicon-heart-custom {
+    color: #f00;
+  }
+}

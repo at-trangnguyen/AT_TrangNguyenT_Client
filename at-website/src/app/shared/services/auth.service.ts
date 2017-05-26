@@ -9,25 +9,25 @@ export class AuthService {
   user: any;
   authStatus = new BehaviorSubject(false);
   authStatus$ = this.authStatus.asObservable();
-  constructor(private _http: Http) {
+  constructor( private _http: Http ) {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.user = currentUser;
-    if (this.user !== null) {
+    if( this.user !== null ) {
       this.authStatus.next(true);
     }
 	}
 
-  login(email: string, password: string): Observable<any> {
-    let encoded_data = JSON.stringify({ email: email, password: password });
-    let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
+  login( email: string, password: string ): Observable<any> {
+    const encoded_data = JSON.stringify({ email: email, password: password });
+    const headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
 
     return this._http.post('http://localhost:3000/api/v1/users/login', encoded_data, {headers: headers})
       .map((res: Response) => {
-        let user = res.json();
-        if (user) {
+        let user = res.json().user;
+        if(user) {
           this.authStatus.next(true);
           this.user = user;
-          localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('currentUser', JSON.stringify(this.user));
           return true;
         }
         else {

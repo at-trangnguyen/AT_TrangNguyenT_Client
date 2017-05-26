@@ -1,28 +1,31 @@
 <div class="article" *ngFor="let item of articles">
   <div class="article-item  clearfix">
     <h3 class="article-name">
-      <a routerLink="['/article', articles.id]" routerLinkActive="active">{{item.name}}</a>
+      <a routerLink="/article/{{item.id}}" routerLinkActive="active">{{item.name}}</a>
     </h3>
     <div class="img-thumbnail">
-      <a href="">
-        <img src="{{item.picture | picture}}" alt="{{item.name}}">
+      <a routerLink="/article/{{item.id}}" routerLinkActive="active">
+        <img src="http://172.17.19.137:3000{{item.picture.url | picture}}" alt="{{item.name}}">
       </a>
     </div>
     <div class="article-preview">
       <div class="author-info clearfix">
         <span class="author-name">
-          <a routerLink="/profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>{{item.user.firstname}} {{item.user.lastname}}</a>
+          <a routerLink="/profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>{{item.user.fullname}}</a>
         </span>
-        <span class="date">{{item.created_at}}</span>
+        <span class="date">{{item.created_at | date}}</span>
       </div>
       <div class="article-preview-content clearfix">
         <p class="description">{{item.description}}</p>
-        <a routerLink="/article" routerLinkActive="active" class="readmore">
+        <a routerLink="/article/{{item.id}}" routerLinkActive="active" class="readmore">
           Read More
           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
         </a>
       </div>
     </div>
-    <app-btn-like class="btn-like"></app-btn-like>
+    <button class="btn btn-like">
+      <span class="glyphicon glyphicon-heart glyphicon-heart-custom"></span>
+      <span class="like-account">{{item.favorites_count}}</span>
+    </button>
   </div>
 </div>  

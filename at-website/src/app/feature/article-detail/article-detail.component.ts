@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import  {  ActivatedRoute  }  from  '@angular/router';
+import { ArticleService } from '../../shared/services/article.service';
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
@@ -7,13 +8,17 @@ import  {  ActivatedRoute  }  from  '@angular/router';
 })
 export class ArticleDetailComponent implements OnInit {
   id: number;
-  sub: any;
-  constructor( private _route: ActivatedRoute) { }
+  article: any;
+  constructor( 
+    private _router: ActivatedRoute,
+    private _articleService: ArticleService) { }
 
   ngOnInit() {
-    this.sub = this._route.params.subscribe((params: any) => {
-      this.id = +params['id'];
-    }); 
+    let param = this._router.snapshot.params.id;
+    this._articleService.getArticleById(param)
+    .subscribe(data => {
+      this.article = data.article;
+      console.log(this.article);
+    })
   }
-
 }

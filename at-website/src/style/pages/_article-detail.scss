@@ -1,0 +1,75 @@
+.article-detail-page {
+  .article-name {
+    text-align: center;
+    font-style: italic;
+    margin-top: 0;
+  }
+  .article-info {
+    text-align: center;
+    color: #9d9d9d;
+    .author-name {
+      font-style: italic;
+    }
+  }
+  .article-image {
+    width: 50%;
+    margin: 15px auto;
+  }
+  .article-content {
+    text-indent: 20px;
+    margin: 15px 0 30px;
+  }
+  .btn-like {
+    float: left;
+  }
+  .user-btn {
+    float: right;
+  }
+  .btn-user {
+    padding: 6px 20px;
+    border-color: $color-a;
+    background-color: #fff;
+  }
+  .btn-edit {
+    margin-right: 10px;
+  }
+  .article-tags {
+    padding: 10px 20px;
+    margin-right: 10px;
+    margin: 30px 0;
+    display: flex;
+    background: #f6f6f6;
+    border: 1px solid $color-border;
+    span {
+      text-transform: uppercase;
+      margin-right: 5px;
+    }
+  }
+  .author {
+    margin-bottom: 90px;
+  }
+  .social-icons.team-icons {
+    bottom: -85px;
+  }
+  .team-grid {
+    &:hover {
+      .social-icons.team-icons {
+        bottom: -75px;
+      }
+    }
+  }
+  .ih-item.circle.effect1 {  
+    .spinner {
+      border-right-color: $color-b;
+      border-bottom-color: $color-b;
+    }
+  }
+  .comment {
+    .btn-post {
+      padding: 11px 23px;
+      float: right;
+      background-color: $color-b;
+      border-color: $color-b;
+    }
+  }
+}

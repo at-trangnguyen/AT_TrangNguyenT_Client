@@ -10,7 +10,6 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 
 export class LoginComponent implements OnInit {
-  submitted: boolean;
   error = '';
   email = new FormControl('', [
     Validators.required		
@@ -43,6 +42,5 @@ export class LoginComponent implements OnInit {
     }, (error: any) => {
         this.error = ' Email or password is incorrect !';
     });
-    this.submitted = true;
   }
 }

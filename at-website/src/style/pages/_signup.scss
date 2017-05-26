@@ -1,26 +1,19 @@
-.login-page {
+.signup-page {
   min-height: 496px;
   a {
     display: block;
-    margin-left: 45%;
+    text-align: center;
     margin-bottom: 40px;
   }
-  .col-md-6 {
-    margin-left: 25%;
-  }
   .form-group {
-    .btn {
-      margin-left: 42%;
-    }
     input.ng-invalid.ng-dirty {
       border-left: 7px solid #F00;
     }
-    input.ng-valid {
-      border-left: 7px solid green;
-    }
     input.ng-invalid.ng-dirty + .error-msg {
       display: inline-block;
-      font-size: 12px;
+    }
+    input.ng-valid {
+      border-left: 7px solid green;
     }
     .error-msg {
       display: none;

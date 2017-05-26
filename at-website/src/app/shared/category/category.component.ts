@@ -7,7 +7,7 @@ import { CategoryService } from '../../shared/services/category.service'
 })
 export class CategoryComponent implements OnInit {
 
-  categories: any[];
+  categories: any;
   constructor(private _categories: CategoryService ) { }
 
   ngOnInit() {
