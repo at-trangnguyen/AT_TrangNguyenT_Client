@@ -1,3 +1,7 @@
+
+@font-face {
+	font-family: 'Roboto';
+}
 @font-face {
   font-family: 'Conv_Cookie-Regular';
   src: url('/assets/fonts/Cookie-Regular.eot');
@@ -8,8 +12,8 @@
   font-weight: normal;
   font-style: normal;
 }
-$font-family: 'Conv_Cookie-Regular', sans-serif;
-
+$font-family-a: 'Conv_Cookie-Regular', sans-serif;
+$font-family-b: 'Roboto', sans-serif;
 $color-a: #000000;
 $color-b: #f44639;
 $color-c: #333333;

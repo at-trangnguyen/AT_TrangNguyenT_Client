@@ -2,12 +2,12 @@
   "articles": [
     {
       "id": "1",
-      "name": "introduce myself",
-      "description": "About my life",
+      "name": "Outstanding Blogger template for developing gadgets news",
+      "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...",
       "detail": "hello, my name is Tnkt",
       "created_at": "09/05/2017 10:00:00",
       "updated_at": "09/05/2017 10:00:00",
-      "picture": "picture.png",
+      "picture": "",
       "category": {
         "id": "1",
         "name": "Ruby on Rails"
@@ -25,12 +25,81 @@
     },
     {
       "id": "2",
-      "name": "introduce myself",
-      "description": "About my life",
+      "name": "Outstanding Blogger template for developing gadgets news1",
+      "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...",
       "detail": "hello, my name is Tnkt",
       "created_at": "09/05/2017 10:00:00",
       "updated_at": "09/05/2017 10:00:00",
-      "picture": "picture.png",
+      "picture": "",
+      "category": {
+        "id": "1",
+        "name": "Ruby on Rails"
+      },
+      "user": {
+        "id": "2",
+        "firstname": "Trang",
+        "lastname": "Nguyen",
+        "email": "trangnguyen@gmail.com",
+        "avatar": "avatar.png",
+        "following": "true"
+      },
+      "favorited": false,
+      "favorites_count": "1"
+    },
+    {
+      "id": "3",
+      "name": "Outstanding Blogger template for developing gadgets news2",
+      "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...",
+      "detail": "hello, my name is Tnkt",
+      "created_at": "09/05/2017 10:00:00",
+      "updated_at": "09/05/2017 10:00:00",
+      "picture": "",
+      "category": {
+        "id": "1",
+        "name": "Ruby on Rails"
+      },
+      "user": {
+        "id": "2",
+        "firstname": "Trang",
+        "lastname": "Nguyen",
+        "email": "trangnguyen@gmail.com",
+        "avatar": "avatar.png",
+        "following": "true"
+      },
+      "favorited": false,
+      "favorites_count": "1"
+    },
+    {
+      "id": "4",
+      "name": "Outstanding Blogger template for developing gadgets news",
+      "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...",
+      "detail": "hello, my name is Tnkt",
+      "created_at": "09/05/2017 10:00:00",
+      "updated_at": "09/05/2017 10:00:00",
+      "picture": "",
+      "category": {
+        "id": "1",
+        "name": "Ruby on Rails"
+      },
+      "user": {
+        "id": "2",
+        "firstname": "Trang",
+        "lastname": "Nguyen",
+        "email": "trangnguyen@gmail.com",
+        "avatar": "avatar.png",
+        "following": "true"
+      },
+      "favorited": false,
+      "favorites_count": "1"
+    },
+    {
+      "id": "5",
+      "name": "Outstanding Blogger template for developing gadgets news",
+      "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...",
+      "detail": "hello, my name is Tnkt",
+      "created_at": "09/05/2017 10:00:00",
+      "updated_at": "09/05/2017 10:00:00",
+      "picture": "",
       "category": {
         "id": "1",
         "name": "Ruby on Rails"

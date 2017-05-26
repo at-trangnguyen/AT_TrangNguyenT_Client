@@ -7,12 +7,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './feature/home/home.component';
-import { ArticleComponent } from './shared/article/article.component'
-import { ArticleService } from './shared/services/article.service'
+import { ArticleComponent } from './shared/article/article.component';
+import { ArticleService } from './shared/services/article.service';
 import { CategoryComponent } from './shared/category/category.component'
 import {CategoryService} from './shared/services/category.service';
 import { LoginComponent } from './auth/login/login.component'
-import { AuthService } from './shared/services/auth.service'
+import { AuthService } from './shared/services/auth.service';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 import { FavoriteArticleComponent } from './shared/favorite-article/favorite-article.component';
 import { PopularTagComponent } from './shared/popular-tag/popular-tag.component';
@@ -27,12 +27,14 @@ import { EditArticleComponent } from './feature/edit-article/edit-article.compon
 import { NewPostComponent } from './feature/new-post/new-post.component';
 import { SearchComponent } from './feature/search/search.component';
 import { FormArticleComponent } from './shared/form-article/form-article.component';
+import { PicturePipe } from './shared/pipes/picture-article.pipe';
+import { UserService } from './shared/services/user.service';
 
 const routes: Routes = [
  { path: 'home', component: HomeComponent },
  { path: 'login', component: LoginComponent },
  { path: 'signup', component: SignupComponent },
- { path: 'article', component: ArticleDetailComponent },
+ { path: 'article/:id', component: ArticleDetailComponent },
  { path: 'new-article', component: NewPostComponent },
  { path: 'profile', component: ProfileComponent },
  { path: 'edit-profile', component: EditProfileComponent },
@@ -64,7 +66,8 @@ export const routing = RouterModule.forRoot(routes);
     EditArticleComponent,
     NewPostComponent,
     SearchComponent,
-    FormArticleComponent
+    FormArticleComponent,
+    PicturePipe
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ export const routing = RouterModule.forRoot(routes);
     HttpModule,
     routing
   ],
-  providers: [ArticleService, CategoryService, AuthService],
+    
+  providers: [ArticleService, CategoryService, AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

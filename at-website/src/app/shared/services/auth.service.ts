@@ -1,26 +1,33 @@
-import {Http, Headers, Response} from '@angular/http'
-import {Injectable} from '@angular/core'
-import {Observable} from 'rxjs/Observable'
-import 'rxjs/add/operator/map'
+import {Http, Headers, Response} from '@angular/http';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
-@Injectable() 
+@Injectable()
 export class AuthService {
-  token: string;
+  user: any;
+  authStatus = new BehaviorSubject(false);
+  authStatus$ = this.authStatus.asObservable();
   constructor(private _http: Http) {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
+    this.user = currentUser;
+    if (this.user !== null) {
+      this.authStatus.next(true);
+    }
 	}
 
   login(email: string, password: string): Observable<any> {
-    console.log(email);
-    return this._http.post('http://172.16.29.229:3000/api/v1/users/login', JSON.stringify({ email: email, password: password }))
+    let encoded_data = JSON.stringify({ email: email, password: password });
+    let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
+
+    return this._http.post('http://localhost:3000/api/v1/users/login', encoded_data, {headers: headers})
       .map((res: Response) => {
-        console.log(res.json());
-        let token = res.json() && res.json().token;
-        console.log(token);
-        if (token) {
-          this.token = token;
-          localStorage.setItem('currentUser', JSON.stringify({ email: email, token: token }));
+        let user = res.json();
+        if (user) {
+          this.authStatus.next(true);
+          this.user = user;
+          localStorage.setItem('currentUser', JSON.stringify(user));
           return true;
         }
         else {
@@ -29,7 +36,8 @@ export class AuthService {
     });
   }
   logout(): void {
-    this.token = null;
+    this.authStatus.next(false);
+    this.user = null;
     localStorage.removeItem('currentUser');
   }
 }

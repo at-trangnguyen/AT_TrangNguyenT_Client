@@ -10,9 +10,7 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 
 export class LoginComponent implements OnInit {
-  
   submitted: boolean;
-  user: any = {};
   error = '';
   email = new FormControl('', [
     Validators.required		
@@ -37,16 +35,14 @@ export class LoginComponent implements OnInit {
     this._authService.logout();
   }
   login() {
-    console.log(this.loginForm.controls.email.value);
     this._authService.login(this.loginForm.controls.email.value,this.loginForm.controls.password.value)
-    .subscribe(result => {
-      if(result === true) {
+    .subscribe((result: any) => {
+      if (result === true) {
         this._router.navigate(['/home']);
-      }
-      else {
+      } 
+    }, (error: any) => {
         this.error = ' Email or password is incorrect !';
-      }
-    })
-    console.log('Success');
+    });
+    this.submitted = true;
   }
 }

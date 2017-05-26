@@ -6,6 +6,7 @@
       <div class="col-md-6">
         <div>
           <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div *ngIf="error" class="alert alert-danger">{{error}}</div>
             <div class="form-group">
               <input type="email" name="email" class="form-control input-lg" placeholder="Email" formControlName="email">
               <span class="error-msg text-danger">
