@@ -1,0 +1,28 @@
+.profile
+{
+  .user-info {
+    border-bottom: 4px double $color-border;
+    
+    text-align: center;
+    h2 {
+      font-family: $font-family-a;
+      margin-bottom: 20px;
+    }
+  }
+  .user-info-padding {
+    padding: 15px 185px;
+  }
+  .avatar {
+  	width: 160px;
+    height: 160px;
+    margin: 0 auto 30px;
+    img {
+      @include border-radius(50%);
+    }
+  }
+  .btn-edit {
+    margin-top: 20px;
+    padding: 6px 20px;
+    border-color: $color-a;
+  }
+}

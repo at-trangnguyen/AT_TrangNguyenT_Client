@@ -1,7 +1,7 @@
 {
   "articles": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Outstanding Blogger template for developing gadgets news",
       "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...",
       "detail": "hello, my name is Tnkt",
@@ -24,7 +24,7 @@
       "favorites_count": "1"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Outstanding Blogger template for developing gadgets news1",
       "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...",
       "detail": "hello, my name is Tnkt",
@@ -44,10 +44,10 @@
         "following": "true"
       },
       "favorited": false,
-      "favorites_count": "1"
+      "favorites_count": "2"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Outstanding Blogger template for developing gadgets news2",
       "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...",
       "detail": "hello, my name is Tnkt",
@@ -67,10 +67,10 @@
         "following": "true"
       },
       "favorited": false,
-      "favorites_count": "1"
+      "favorites_count": "5"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Outstanding Blogger template for developing gadgets news",
       "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...",
       "detail": "hello, my name is Tnkt",
@@ -93,7 +93,7 @@
       "favorites_count": "1"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Outstanding Blogger template for developing gadgets news",
       "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed nec laoreet orci, eget ullamcorper quam. Phasellus lorem neque, scelerisque et faucibus vitae, dapibus eu erat. Duis feugiat leo eu interdum aliquam. Aliquam egestas, lorem a tristique sodales, erat magna ultricies...",
       "detail": "hello, my name is Tnkt",

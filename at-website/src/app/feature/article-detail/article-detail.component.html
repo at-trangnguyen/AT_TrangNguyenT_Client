@@ -1,10 +1,10 @@
-<div class="article-detail-page">
+<div class="article-detail-page" *ngIf="article">
   <div class="container">
     <app-category></app-category>
     <div class="col-md-9 main-content">
-      <h2 class="article-name">You create your opportunities by asking for them.</h2>
+      <h2 class="article-name">{{article.name}}</h2>
       <div class="article-info">
-        <span> By <a href="" class="author-name"> Trang Nguyen </a> <span class="date">07/05/2017</span></span>
+        <span> By <a href="" class="author-name"> {{article.user.fullname}} </a> <span class="date">{{article.created_at}}</span></span>
       </div>
       <div class="article-detail">
         <div class="article-image">
@@ -12,48 +12,49 @@
         </div>
         <div class="article-content">
           <p>
-            Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            Sed posuere consectetur est at lobortis. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna vel.
-            Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            Sed posuere consectetur est at lobortis. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna vel.
-            Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            Sed posuere consectetur est at lobortis. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna vel.
-            Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            Sed posuere consectetur est at lobortis. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna vel.
-            Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            Sed posuere consectetur est at lobortis. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna vel.
-            Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            Sed posuere consectetur est at lobortis. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna vel.
+           {{article.detail}}
           </p>
         </div>
       </div>
       <div class="share-post clearfix">
-        <app-btn-like class="btn-like"></app-btn-like>
-        <ul>
-          <li>
-            <a href="" class="btn btn-block btn-social btn-facebook">
-              <i class="fa fa-facebook fa-btn-share"></i>
-              Share on your Facebook
-            </a>
-          </li>
-          <li>
-            <a href="" class="btn btn-block btn-social btn-twitter">
-              <i class="fa fa-twitter fa-btn-share"></i>
-              Share on your Twitter
-            </a>
-          </li>
-          <li>
-            <a href="" class="btn btn-block btn-social btn-google">
-              <i class="fa fa-google fa-btn-share"></i>
-              Share on your Google
-            </a>
-          </li>
-        </ul>
+        <button class="btn btn-like">
+          <span class="glyphicon glyphicon-heart glyphicon-heart-custom"></span>
+          <span class="like-account">{{article.favorites_count}}</span>
+        </button>
+        <div class="user-btn">
+          <a routerLink="/edit-profile" routerLinkActive="active" class="btn btn-edit btn-user">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span> Edit Article</span>
+          </a>
+          <button class="btn btn-delete btn-user">
+            <span class="glyphicon glyphicon-trash"></span>
+            <span> Delete Article</span>
+          </button>
+        </div>
+      </div>
+      <div class="article-tags">
+        <span>tags: </span>
+        <div class="tags-list" *ngFor="let item of article.tags">
+          <a href="" class="badge badge-pill badge-default">{{item.name}}</a>
+        </div>
+      </div>
+      <div class="comment">
+        <div class="title">Comments</div>
+        <div class="form-comment">
+          <form>
+            <div class="form-group">
+              <textarea class="form-control" rows="3" placeholder="Write your comment" ></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-post">Post</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <div class="col-md-3 sidebar">
       <div class="author">
-        <div class="div-label">
+        <div class="title">
           <span>About Author</span>
         </div>
         <div class="div-content team-grid">

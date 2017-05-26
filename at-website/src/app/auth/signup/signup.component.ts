@@ -2,6 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../shared/services/user.service';
+
+function isValidMailFormat(control: FormControl) {
+  let email_regex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  if(control.value.match(email_regex)) {
+    return null
+  }
+  else {
+    return { 'email': true };
+  }
+}
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,30 +20,28 @@ import { UserService } from '../../shared/services/user.service';
 })
 export class SignupComponent implements OnInit {
 
-  
-  submitted: boolean;
-
   firstName = new FormControl('', [
     Validators.required,
     Validators.maxLength(10)
-  ])
+  ]);
   lastName = new FormControl('', [
     Validators.required,
     Validators.maxLength(20)
-  ])
+  ]);
   email = new FormControl('', [
-    Validators.required
-  ])
+    Validators.required,
+    isValidMailFormat
+  ]);
   password = new FormControl('', [
     Validators.required,
     Validators.minLength(8)
-  ])
+  ]);
   birthday = new FormControl('', [
     Validators.required
-  ])
+  ]);
   sex = new FormControl('', [
     Validators.required
-  ])
+  ]);
   private newUserForm: FormGroup;
   
   constructor(
@@ -53,12 +62,8 @@ export class SignupComponent implements OnInit {
 
   submit() {
     this._userService.create(this.newUserForm.value)
-    .subscribe((data: any) => {
-      console.log(data);
-      this._router.navigate(['/login']);
-    });
-    this.submitted = true;
+      .subscribe((data: any) => {
+        this._router.navigate(['/login']);
+      });
   }
-
-
 }

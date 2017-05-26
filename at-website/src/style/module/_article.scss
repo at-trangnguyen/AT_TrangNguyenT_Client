@@ -41,11 +41,11 @@
     .readmore {
       float: right;
       font-size: 13px;
-      color: white;
+      color: $color-d;
       background: $color-c;
       padding: 15px 15px;
       letter-spacing: 1px;
-      transition: 0.5s all;
+      @include transition(0.5s all);
       line-height: 1.2;
       &:hover {
         background: $color-b;

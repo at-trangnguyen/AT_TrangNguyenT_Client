@@ -1,0 +1,21 @@
+.edit-user-page {
+  min-height: 496px;
+  h1 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .form-group {
+    input.ng-invalid.ng-dirty {
+      border-left: 7px solid #F00;
+    }
+    input.ng-invalid.ng-dirty + .error-msg {
+      display: inline-block;
+    }
+    input.ng-valid.ng-dirty.ng-touched {
+      border-left: 7px solid #2fc332;
+    }
+    .error-msg {
+      display: none;
+    }
+  }
+}

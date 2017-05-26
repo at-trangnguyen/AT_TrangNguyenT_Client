@@ -1,0 +1,22 @@
+.favorite-article {
+  margin-bottom: 30px;
+  .favorite-article-item {
+    margin-bottom: 5px;
+  }
+  .content {
+    .item-thumbnail-custom {
+      float: left;
+      width: 28%;
+      margin: 0px 10px 5px 0px;
+    	img {
+        height: 72px;
+        width: 72px;
+    	}
+    }
+    .item-title {
+      float: left;
+      width: 68%;
+      font-weight: bold;
+    }
+  }
+}

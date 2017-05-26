@@ -1,45 +1,47 @@
 <div class="edit-user-page">
   <div class="container">
+      <h1>Your Settings</h1>
     <div class="row">
-      <div class="col-md-6">
-        <h1>Your Settings</h1>
+      <div class="col-md-6 col-md-offset-3">
         <div [hidden]="submitted">
           <form [formGroup]="editUserForm" (ngSubmit)="updateUser()">
-            <div class="form-group">
-              <label for="avatar">Avatar: </label>
-              <input type="file" name="img">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label for="avatar">Avatar: </label>
+                  <input type="file" name="img" accept="image/x-png,image/gif,image/jpeg" formControlName="avatar">
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="form-group">
+                  <input type="text" name="firstname" class="form-control input-lg" placeholder="Firstname" formControlName="first_name">
+                  <span class="error-msg text-danger">
+                    Firstname is required (maximum 10 characters) !
+                  </span>
+                </div>
+                <div class="form-group">
+                  <input type="text" name="lastname" class="form-control input-lg" placeholder="Lastname" formControlName="last_name">
+                  <span class="error-msg text-danger">
+                    Lastname is required (maximum 10 characters) !
+                  </span>
+                </div>
+                <div class="form-group">
+                  <input type="date" name="birthday" class="form-control input-lg" formControlName="birthday">
+                  <span class="error-msg text-danger">
+                    Birthday is required !
+                  </span>
+                </div>
+                <div class="form-group">
+                  <label class="radio-inline"><input type="radio" value="female" name="gender" formControlName="gender">Female</label>
+                  <label class="radio-inline"><input type="radio" value="male" name="gender" formControlName="gender">Male</label>
+                  <span class="error-msg text-danger">
+                    Gender is required !
+                  </span>
+                </div>
+              </div>
             </div>
             <div class="form-group">
-              <label for="firstname">First Name: </label>
-              <input type="text" name="firstname" class="form-control" formControlName="first_name">
-              <span class="error-msg text-danger">
-               Firstname is required (maximum 10 characters) !
-              </span>
-            </div>
-            <div class="form-group">
-              <label for="lastname">Last Name: </label>
-              <input type="text" name="lastname" class="form-control" formControlName="last_name">
-              <span class="error-msg text-danger">
-               Lastname is required (maximum 10 characters) !
-              </span>
-            </div>
-            <div class="form-group">
-              <label for="birthday">Birthday: </label>
-              <input type="date" name="birthday" class="form-control" formControlName="birthday">
-              <span class="error-msg text-danger">
-               Firstname is required (maximum 10 characters) !
-              </span>
-            </div>
-            <div class="form-group">
-              <label for="Gender">Gender: </label>
-              <label class="radio-inline"><input type="radio" value="female" name="gender" formControlName="gender">Female</label>
-              <label class="radio-inline"><input type="radio" value="male" name="gender" formControlName="gender">Male</label>
-              <span class="error-msg text-danger">
-               Firstname is required (maximum 10 characters) !
-              </span>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-lg btn-primary" [disabled]="!editUserForm.valid">Update</button>
+              <button type="submit" class="btn btn-lg btn-primary pull-xs-right" [disabled]="!editUserForm.valid">Update</button>
             </div>
           </form>
         </div>
