@@ -6,17 +6,17 @@
     margin-bottom: 40px;
   }
   .form-group {
-    input.ng-invalid.ng-dirty {
-      border-left: 7px solid #F00;
-    }
-    input.ng-invalid.ng-dirty + .error-msg {
-      display: inline-block;
-    }
-    input.ng-valid {
-      border-left: 7px solid green;
-    }
-    .error-msg {
-      display: none;
-    }
-  }
+	  input.ng-invalid.ng-dirty {
+	    border-left: 7px solid #F00;
+	  }
+	  input.ng-invalid.ng-dirty + .error-msg {
+	    display: inline-block;
+	  }
+	  input.ng-valid {
+	    border-left: 7px solid green;
+	  }
+	  .error-msg {
+	    display: none;
+	  }
+	}
 }

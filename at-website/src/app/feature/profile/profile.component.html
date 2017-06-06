@@ -1,23 +1,54 @@
-<div class="profile">
+<div class="profile" *ngIf="user">
   <div class="user-info clearfix">
     <div class="container user-info-padding">
       <div class="row">
         <div class="col-md-8">
-          <h2>Trang Nguyen T.</h2>
-          <a routerLink="/edit-profile" routerLinkActive="active" class="btn btn-edit">
+          <h2>{{user.fullname}}</h2>
+          <a routerLink="/edit-profile/{{user.id}}" routerLinkActive="active" class="btn btn-edit" *ngIf="isCurrentUser(user.id)">
             <span class="glyphicon glyphicon-cog"></span>
             <span> Edit Profile</span>
           </a>
+          <button class="btn btn-default follow-btn" *ngIf="!isCurrentUser(user.id) && user.followed" (click)="follow(user)">
+            <span class="btn-text">
+              <span class="glyphicon glyphicon-ok glyphicon-custom"></span>
+             Unfollow 
+            </span>
+          </button>
+          <button class="btn btn-default follow-btn" *ngIf="!isCurrentUser(user.id) && !user.followed" (click)="follow(user)">
+            <span class="btn-text">
+              <span class="glyphicon glyphicon-plus glyphicon-custom"></span>
+              Follow 
+            </span>
+          </button>
         </div>
         <div class="col-md-4 avatar">
-          <img src="./assets/images/t1.jpg">
+          <img src="{{url + user.picture | avatar: user.picture}}">
         </div>
-        
       </div>
     </div>
   </div>
   <div class="container">
-    <app-article></app-article>
-    <app-pagination></app-pagination>
+    <app-article *ngFor="let article of articles" [item]="article"></app-article>
+    <div class="list-pagination">
+      <nav aria-label="Page navigation">
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="setPage(1)">First</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+          </li>
+          <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <a (click)="setPage(page)">{{page}}</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.currentPage + 1)">Next</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.totalPages)">Last</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div> 
 </div>

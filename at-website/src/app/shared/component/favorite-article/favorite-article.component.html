@@ -1,0 +1,21 @@
+<div class="favorite-article">
+  <div class="title">
+    <span> Top Articles</span>
+  </div>
+  <div class="content">
+    <ul class="favorite-article-list">
+      <li class="favorite-article-item clearfix" *ngFor="let item of popularArticles">
+        <div class="item-thumbnail item-thumbnail-custom">
+          <a routerLink="/article/{{item.id}}" routerLinkActive="active">
+            <img src="{{url + item.picture.url | picture: item.picture.url}}">
+          </a>
+        </div>
+        <div class="item-title">
+          <a routerLink="/article/{{item.id}}" routerLinkActive="active">
+            {{item.name}}
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

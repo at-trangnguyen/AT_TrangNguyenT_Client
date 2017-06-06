@@ -2,8 +2,10 @@
   <div class="container">
     <h1>Search Result</h1>
     <div class="col-md-9 main-content">
-      <app-article></app-article>
-      <app-pagination></app-pagination>
+      <!-- <app-article *ngFor="let article of articles" [item]="article"></app-article> -->
+      <div class="search-result">
+        <a href="" class="search-result-item">Trang Nguyen</a>
+      </div>
     </div>
     <aside class="col-md-3 sidebar">
       <app-favorite-article></app-favorite-article>
