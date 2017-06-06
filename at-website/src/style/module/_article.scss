@@ -1,58 +1,69 @@
-.article-item {
-  margin-bottom: 20px;
-  border-bottom: 5px solid $color-border;
-}
-.article-name {
-  font-weight: bold;
-  text-transform: capitalize;
-}
-.img-thumbnail {
-  float: left;
-  width: 25%;
-  margin-bottom: 15px;
-  padding: 10px;
-  border: none;
-  img {
-    height: 210px;
+.article {
+  .article-item {
+    margin-bottom: 20px;
+    border-bottom: 5px solid $color-border;
   }
-}
-.article-preview {
-  float: left;
-  width: 68%;
-  padding: 10px;
-  .author-info {
-    font-size: 16px;
-    font-style: italic;
-    color: $color-b;
-    margin-bottom: 12px;
-    .author-name {
-      margin-right: 12px;
-    }
-    .date {
-      margin-right: 12px;
+  .article-name {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  .img-thumbnail {
+    float: left;
+    width: 25%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    img {
+      height: 210px;
     }
   }
-  .article-preview-content {
-    .description {
-      color: $color-c;
-      line-height: 1.5;
-      text-indent: 20px;
+  .article-preview {
+    float: left;
+    width: 67%;
+    padding: 10px;
+    .author-info {
+      font-size: 16px;
+      font-style: italic;
+      color: $color-b;
+      margin-bottom: 12px;
+      .author-name {
+        margin-right: 12px;
+        text-transform: capitalize;
+      }
+      .date {
+        margin-right: 12px;
+      }
     }
-    .readmore {
-      float: right;
-      font-size: 13px;
-      color: $color-d;
-      background: $color-c;
-      padding: 15px 15px;
-      letter-spacing: 1px;
-      @include transition(0.5s all);
-      line-height: 1.2;
-      &:hover {
-        background: $color-b;
+    .article-preview-content {
+      .description {
+        color: $color-c;
+        line-height: 1.5;
+        text-indent: 20px;
+      }
+      .readmore {
+        float: right;
+        font-size: 13px;
+        color: $color-d;
+        background: $color-c;
+        padding: 15px 15px;
+        letter-spacing: 1px;
+        @include transition(0.5s all);
+        line-height: 1.2;
+        &:hover {
+          background: $color-b;
+        }
       }
     }
   }
+  .btn-like {
+    float: right;
+    width: 8%;
+  }
+  .unlike {
+    background: $color-b;
+    color: $color-d;
+  }
 }
-.btn-like {
-  float: right;
+.list-pagination {
+  text-align: center;
 }

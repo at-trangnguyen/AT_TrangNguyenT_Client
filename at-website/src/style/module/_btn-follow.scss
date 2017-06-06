@@ -1,7 +1,15 @@
 .follow-btn {
   margin-top: 15px;
+  border-color: $color-b;
+  &:hover {
+  	background: $color-b;
+  	color: $color-d;
+  	.glyphicon-custom {
+  		color: $color-d;
+  	}
+  }
 }
-.glyphicon-plus-custom {
+.glyphicon-custom {
   padding-left: 2px;
   padding-right: 0;
   color: $color-b;

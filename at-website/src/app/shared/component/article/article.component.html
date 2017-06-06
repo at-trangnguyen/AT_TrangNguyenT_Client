@@ -1,31 +1,38 @@
-<div class="article" *ngFor="let item of articles">
+<div class="article">
+  <!-- <div class="article-item" *ngIf="!articles.length">
+    No articles are here....yet
+  </div> -->
   <div class="article-item  clearfix">
     <h3 class="article-name">
       <a routerLink="/article/{{item.id}}" routerLinkActive="active">{{item.name}}</a>
     </h3>
     <div class="img-thumbnail">
       <a routerLink="/article/{{item.id}}" routerLinkActive="active">
-        <img src="http://172.17.19.137:3000{{item.picture.url | picture}}" alt="{{item.name}}">
+        <img src="{{url + item.picture.url | picture: item.picture.url}}" alt="{{item.name}}">
       </a>
     </div>
     <div class="article-preview">
       <div class="author-info clearfix">
         <span class="author-name">
-          <a routerLink="/profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>{{item.user.fullname}}</a>
+          <a routerLink="/profile/{{item.user.id}}" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>{{item.user.fullname}}</a>
         </span>
         <span class="date">{{item.created_at | date}}</span>
       </div>
       <div class="article-preview-content clearfix">
-        <p class="description">{{item.description}}</p>
+        <p class="description" [innerHTML]="item.description"></p>
         <a routerLink="/article/{{item.id}}" routerLinkActive="active" class="readmore">
           Read More
           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
         </a>
       </div>
     </div>
-    <button class="btn btn-like">
+    <button class="btn btn-like" *ngIf="!item.favorited" (click)="like(item)" [disabled]="loading">
       <span class="glyphicon glyphicon-heart glyphicon-heart-custom"></span>
       <span class="like-account">{{item.favorites_count}}</span>
     </button>
-  </div>
-</div>  
+    <button class="btn btn-like unlike" *ngIf="item.favorited" (click)="like(item)" [disabled]="loading">
+      <span class="glyphicon glyphicon-heart glyphicon-heart-custom"></span>
+      <span class="like-account">{{item.favorites_count}}</span>
+    </button>
+  </div> 
+</div> 

@@ -1,50 +1,78 @@
 <div class="edit-user-page">
   <div class="container">
-      <h1>Your Settings</h1>
+    <h1>Your Settings</h1>
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div [hidden]="submitted">
-          <form [formGroup]="editUserForm" (ngSubmit)="updateUser()">
-            <div class="row">
-              <div class="col-md-5">
-                <div class="form-group">
-                  <label for="avatar">Avatar: </label>
-                  <input type="file" name="img" accept="image/x-png,image/gif,image/jpeg" formControlName="avatar">
-                </div>
+      <div class="col-md-8 col-md-offset-3">
+        <form [formGroup]="editUserForm" (ngSubmit)="updateUser()" class="form-horizontal">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="avatar" *ngIf="user">
+                <img [src]="imageSrc">
               </div>
-              <div class="col-md-7">
-                <div class="form-group">
-                  <input type="text" name="firstname" class="form-control input-lg" placeholder="Firstname" formControlName="first_name">
+              <div class="form-group">
+                <input type="file" name="file" accept="image/*" (change)="handleInputChange($event)">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="firstname" class="col-md-3 required">First Name: </label>
+                <div class="col-md-6">
+                  <input type="text" name="firstname" class="form-control" placeholder="Firstname" formControlName="first_name" placeholder="Firstname">
                   <span class="error-msg text-danger">
                     Firstname is required (maximum 10 characters) !
                   </span>
                 </div>
-                <div class="form-group">
-                  <input type="text" name="lastname" class="form-control input-lg" placeholder="Lastname" formControlName="last_name">
+              </div>
+              <div class="form-group">
+                <label for="lastname" class="col-md-3 required">Last Name: </label>
+                <div class="col-md-6">
+                  <input type="text" name="lastname" class="form-control" placeholder="Lastname" formControlName="last_name" placeholder="Lastname">
                   <span class="error-msg text-danger">
                     Lastname is required (maximum 10 characters) !
                   </span>
                 </div>
-                <div class="form-group">
-                  <input type="date" name="birthday" class="form-control input-lg" formControlName="birthday">
+              </div>
+              <div class="form-group">
+                <label for="birthday" class="col-md-3 required">Birthday: </label>
+                <div class="col-md-6">
+                  <input type="date" name="birthday" class="form-control" formControlName="birthday">
                   <span class="error-msg text-danger">
                     Birthday is required !
                   </span>
                 </div>
-                <div class="form-group">
-                  <label class="radio-inline"><input type="radio" value="female" name="gender" formControlName="gender">Female</label>
-                  <label class="radio-inline"><input type="radio" value="male" name="gender" formControlName="gender">Male</label>
+              </div>
+              <div class="form-group">
+                <label for="gender" class="col-md-3 required">Gender: </label>
+                <div class="col-md-6">
+                  <label class="radio-inline"><input type="radio" value="1" name="gender" formControlName="gender">Female</label>
+                  <label class="radio-inline"><input type="radio" value="0" name="gender" formControlName="gender">Male</label>
+                  <label class="radio-inline"><input type="radio" value="2" name="gender" formControlName="gender">Other</label>
                   <span class="error-msg text-danger">
                     Gender is required !
                   </span>
                 </div>
               </div>
+              <div class="form-group">
+                <label for="oldpassword" class="col-md-3 required">Old password: </label>
+                <div class="col-md-6">
+                  <input type="password" name="oldpassword" class="form-control" formControlName="old_password" placeholder="Old Password">
+                  <span class="error-msg text-danger" *ngIf="error">
+                    {{error}}
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="newpassword" class="col-md-3">New password: </label>
+                <div class="col-md-6">
+                  <input type="password" name="newpassword" class="form-control" formControlName="new_password" placeholder="New Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-lg btn-primary btn-update" [disabled]="!editUserForm.valid">Update</button>
+              </div>
             </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-lg btn-primary pull-xs-right" [disabled]="!editUserForm.valid">Update</button>
-            </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>

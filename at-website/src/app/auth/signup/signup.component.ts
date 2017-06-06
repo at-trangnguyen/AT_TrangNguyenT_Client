@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../../shared/services/user.service';
+import { ApiService, END_POINT } from '../../shared/services/api.service';
 
 function isValidMailFormat(control: FormControl) {
   let email_regex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-  if(control.value.match(email_regex)) {
+  if (control.value.match(email_regex)) {
     return null
   }
   else {
@@ -45,9 +45,9 @@ export class SignupComponent implements OnInit {
   private newUserForm: FormGroup;
   
   constructor(
+    private _api: ApiService,
     private _buider: FormBuilder,
-    private _router: Router,
-    private _userService: UserService) { }
+    private _router: Router) { }
 
   ngOnInit() {
     this.newUserForm = this._buider.group({
@@ -61,9 +61,9 @@ export class SignupComponent implements OnInit {
   }
 
   submit() {
-    this._userService.create(this.newUserForm.value)
+    this._api.post([END_POINT.users], this.newUserForm.value)
       .subscribe((data: any) => {
         this._router.navigate(['/login']);
-      });
+      })
   }
 }

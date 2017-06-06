@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['/home']);
       } 
     }, (error: any) => {
-        this.error = ' Email or password is incorrect !';
+        this.error = 'Email or password is incorrect !';
     });
   }
 }

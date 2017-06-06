@@ -4,6 +4,7 @@
       <form [formGroup]="articleForm" (ngSubmit)="submit()">
         <div class="form-group">
           <select class="form-control select-custom" formControlName="category_id">
+            <option value="" selected disabled>Please choose category</option>
             <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
           </select>
         </div>
@@ -11,16 +12,18 @@
           <input type="text" name="article_title" class="form-control input-lg" placeholder="Article Title" formControlName="name">
         </div>
         <div class="form-group">
-          <textarea name="detail" class="form-control" rows="10" placeholder="Write your article" formControlName="detail"></textarea>
+          <div [froalaEditor] formControlName="detail"></div>
         </div>
         <div class="form-group">
           <input type="text" name="tags" class="form-control" placeholder="Enter tags" formControlName="tag">
         </div>
+        <img [src]="imageSrc" class="article-picture"> 
         <div class="form-group">
-          <input type="file" name="image" class="form-control-file" accept="image/x-png,image/gif,image/jpeg" aria-describedby="fileHelp" (change)="fileChange($event)">
+          <input type="file" name="file" accept="image/*"
+          (change)="handleInputChange($event)">
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-lg btn-primary btn-form-article">Submit</button>
+          <button type="submit" class="btn btn-lg btn-primary btn-form-article" [disabled]="!articleForm.valid">Submit</button>
         </div>
       </form>
     </div>

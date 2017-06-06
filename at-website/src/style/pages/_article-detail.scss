@@ -9,10 +9,12 @@
     color: #9d9d9d;
     .author-name {
       font-style: italic;
+      text-transform: capitalize;
     }
   }
   .article-image {
     width: 50%;
+    height: 50%;
     margin: 15px auto;
   }
   .article-content {
@@ -63,13 +65,68 @@
       border-right-color: $color-b;
       border-bottom-color: $color-b;
     }
+    .img {
+      img {
+        height: 100%;
+      }
+    }
+    .info-back {
+      h4 {
+        padding: 73px 0 8px;
+      }
+      a {
+        color: $color-d;
+      }
+    }
   }
-  .comment {
+  .form-comment {
+    margin-bottom: 10px;
     .btn-post {
       padding: 11px 23px;
       float: right;
       background-color: $color-b;
       border-color: $color-b;
     }
+  }
+  .comment-item {
+    border: 1px solid $color-border;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    .comment-content {
+      padding: 15px;
+      margin: 0;
+      word-wrap: break-word;
+    }
+    .comment-footer {
+      border-top: 1px solid $color-border;
+      background-color: #f3f3f3;
+      padding: 10px;
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+      .comment-author {
+        color: $color-b;
+        text-transform: capitalize;
+        margin-right: 5px;
+      }
+      .date-comment {
+        font-size: 12px;
+      }
+      .comment-btn {
+        float: right;
+      }
+      .btn-comment-custom {
+        border: none;
+        background: transparent;
+      }
+      .btn-delete-cmt {
+        margin-left: 15px;
+      }
+    }
+  }
+  .edit-comment-block {
+    margin: 0;
   }
 }

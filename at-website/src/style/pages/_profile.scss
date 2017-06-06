@@ -1,11 +1,10 @@
-.profile
-{
+.profile {
   .user-info {
     border-bottom: 4px double $color-border;
-    
     text-align: center;
     h2 {
       font-family: $font-family-a;
+      text-transform: capitalize;
       margin-bottom: 20px;
     }
   }
@@ -13,10 +12,11 @@
     padding: 15px 185px;
   }
   .avatar {
-  	width: 160px;
-    height: 160px;
+  	width: 200px;
+    height: 175px;
     margin: 0 auto 30px;
     img {
+      height: 100%;
       @include border-radius(50%);
     }
   }

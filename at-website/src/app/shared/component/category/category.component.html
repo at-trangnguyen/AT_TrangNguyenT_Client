@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container categories">
   <nav class="category">
     <ul class="category-list">
       <li class="category-item">
-        <a href=""> All Post</a>
+        <a routerLink="/home" routerLinkActive="active"> All Post</a>
       </li>
       <li class="category-item" *ngFor="let item of categories">
-        <a href="">{{item.name}}</a>
+        <a routerLink="/category/{{item.id}}" routerLinkActive="active">{{item.name}}</a>
       </li>
     </ul>
   </nav>

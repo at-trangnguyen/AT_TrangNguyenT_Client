@@ -1,7 +1,7 @@
-import {Http, Headers, Response} from '@angular/http';
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Observable} from 'rxjs/Observable';
+import { Http, Headers, Response } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -9,15 +9,19 @@ export class AuthService {
   user: any;
   authStatus = new BehaviorSubject(false);
   authStatus$ = this.authStatus.asObservable();
+  currentUser: any;
+  islogin: any = false;
   constructor( private _http: Http ) {
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.user = currentUser;
-    if( this.user !== null ) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if( this.currentUser ) {
       this.authStatus.next(true);
+    }
+    else {
+      this.authStatus.next(false);
     }
 	}
 
-  login( email: string, password: string ): Observable<any> {
+  login( email: string, password: string ): Observable<boolean> {
     const encoded_data = JSON.stringify({ email: email, password: password });
     const headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
 
@@ -35,9 +39,16 @@ export class AuthService {
         }
     });
   }
-  logout(): void {
+  logout() {
     this.authStatus.next(false);
     this.user = null;
     localStorage.removeItem('currentUser');
+  }
+  isLogin() {
+    if(localStorage.getItem('currentUser')) {
+      return  true;
+    } else {
+      return false;
+    }
   }
 }

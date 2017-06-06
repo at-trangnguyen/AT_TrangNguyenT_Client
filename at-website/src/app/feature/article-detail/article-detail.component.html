@@ -4,29 +4,32 @@
     <div class="col-md-9 main-content">
       <h2 class="article-name">{{article.name}}</h2>
       <div class="article-info">
-        <span> By <a href="" class="author-name"> {{article.user.fullname}} </a> <span class="date">{{article.created_at}}</span></span>
+        <span> By <a routerLink="/profile/{{article.user.id}}" routerLinkActive="active" class="author-name">{{article.user.fullname}} </a> <span class="date">{{article.created_at | date:'medium'}}</span></span>
       </div>
       <div class="article-detail">
         <div class="article-image">
-          <img src="/assets/images/image1.jpg">
+          <img src="{{url + article.picture.url | picture: article.picture.url}}">
         </div>
         <div class="article-content">
-          <p>
-           {{article.detail}}
+          <p [innerHTML]="article.detail">
           </p>
         </div>
       </div>
       <div class="share-post clearfix">
-        <button class="btn btn-like">
+        <button class="btn btn-like" *ngIf="!article.favorited" (click)="like(article)" [disabled]="loading">
           <span class="glyphicon glyphicon-heart glyphicon-heart-custom"></span>
           <span class="like-account">{{article.favorites_count}}</span>
         </button>
-        <div class="user-btn">
-          <a routerLink="/edit-profile" routerLinkActive="active" class="btn btn-edit btn-user">
+        <button class="btn btn-like unlike" *ngIf="article.favorited" (click)="like(article)" [disabled]="loading">
+          <span class="glyphicon glyphicon-heart glyphicon-heart-custom"></span>
+          <span class="like-account">{{article.favorites_count}}</span>
+        </button>
+        <div class="user-btn" *ngIf="isCurrentUser(article.user.id)">
+          <a routerLink="/editor/{{article.id}}" routerLinkActive="active" class="btn btn-edit btn-user">
             <span class="glyphicon glyphicon-pencil"></span>
             <span> Edit Article</span>
           </a>
-          <button class="btn btn-delete btn-user">
+          <button class="btn btn-delete btn-user" (click)="deleteArticle(article.id)">
             <span class="glyphicon glyphicon-trash"></span>
             <span> Delete Article</span>
           </button>
@@ -40,15 +43,46 @@
       </div>
       <div class="comment">
         <div class="title">Comments</div>
-        <div class="form-comment">
-          <form>
+        <div class="form-comment clearfix">
+          <form [formGroup]="commentForm" (ngSubmit)="postComment()">
             <div class="form-group">
-              <textarea class="form-control" rows="3" placeholder="Write your comment" ></textarea>
+              <textarea class="form-control" rows="3" placeholder="Write your comment" formControlName="content"></textarea>
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-primary btn-post">Post</button>
             </div>
           </form>
+        </div>
+        <div class="comment-item" *ngFor="let comment of comments">
+          <div class="comment-block" *ngIf="isEditingID != comment.id">
+            <p class="comment-content">{{comment.content}}</p>
+            <div class="comment-footer clearfix">
+              <a routerLink="/profile/{{comment.user.id}}" routerLinkActive="active"><img src="{{url + comment.user.avatar.url | avatar: comment.user.avatar.url}}"></a>
+              <a routerLink="/profile/{{comment.user.id}}" routerLinkActive="active" class="comment-author">{{comment.user.fullname}}</a>
+              <span class="date-comment">{{comment.created_at | date:'medium'}}</span>
+              <div class="comment-btn" *ngIf="isCurrentUser(comment.user.id)">
+                <button type="button" class="btn-edit-cmt btn-comment-custom" (click)="editComment(comment.id)">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button type="button" class="btn-delete-cmt btn-comment-custom" (click)="deleteComment(comment.id)">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group edit-comment-block" *ngIf="isEditingID == comment.id">
+            <textarea class="form-control" rows="3" [(ngModel)]="contentEdit"></textarea>
+            <div class="comment-footer clearfix">
+              <div class="comment-btn">
+                <button type="button" class="btn-save-cmt btn-comment-custom" (click)="updateComment(comment)">
+                  <span class="glyphicon glyphicon-floppy-saved"></span>
+                </button>
+                <button type="button" class="btn-save-cmt btn-comment-custom" (click)="cancleComment(comment.id)">
+                  <span class="glyphicon glyphicon-floppy-remove"></span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -60,15 +94,25 @@
         <div class="div-content team-grid">
           <div class="ih-item circle effect1">
               <div class="spinner"></div>
-              <div class="img"><img src="/assets/images/t1.jpg" alt=" " class="img-responsive" /></div>
+              <div class="img"><img src="{{url + article.user.avatar.url | avatar: article.user.avatar.url}}" alt="" class="img-responsive" /></div>
               <div class="info">
                 <div class="info-back">
-                  <h4>Trang NT.</h4>
-                  <p>10/11/1994</p>
+                  <h4><a routerLink="/profile/{{article.user.id}}" routerLinkActive="active">{{article.user.fullname}}</a></h4>
                 </div>
               </div>
             </div>
-            <app-btn-follow></app-btn-follow>
+            <button class="btn btn-default follow-btn un-follow" *ngIf="!canEdit && article.followed" (click)="follow(article.user)">
+              <span class="btn-text">
+              <span class="glyphicon glyphicon-ok glyphicon-custom"></span>
+                Unfollow 
+              </span>
+            </button>
+            <button class="btn btn-default follow-btn" *ngIf="!canEdit && !article.followed" (click)="follow(article.user)">
+              <span class="btn-text">
+                <span class="glyphicon glyphicon-plus glyphicon-custom"></span>
+                Follow 
+              </span>
+            </button>
             <div class="social-icons team-icons">
               <ul>
                 <li><a href="#" class="fa fa-facebook"> </a></li>
