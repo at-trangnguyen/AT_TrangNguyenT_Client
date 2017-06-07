@@ -7,9 +7,10 @@ import { ApiService, END_POINT, IMAGE_ROOT } from '../../services/api.service';
 })
 export class FavoriteArticleComponent implements OnInit {
   popularArticles: any;
-  url: any = IMAGE_ROOT ;
+  url: any;
   constructor(private _api: ApiService) { 
     this.popularArticles = [];
+    this.url = IMAGE_ROOT;
   }
 
   ngOnInit() {

@@ -19,7 +19,7 @@ function isValidMailFormat(control: FormControl) {
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-
+  error: string;
   firstName = new FormControl('', [
     Validators.required,
     Validators.maxLength(10)
@@ -47,7 +47,10 @@ export class SignupComponent implements OnInit {
   constructor(
     private _api: ApiService,
     private _buider: FormBuilder,
-    private _router: Router) { }
+    private _router: Router
+  ) { 
+    this.error = '';
+  }
 
   ngOnInit() {
     this.newUserForm = this._buider.group({
@@ -64,6 +67,8 @@ export class SignupComponent implements OnInit {
     this._api.post([END_POINT.users], this.newUserForm.value)
       .subscribe((data: any) => {
         this._router.navigate(['/login']);
-      })
+      }, (error: any) => {
+        this.error = 'This email already exists !';
+    });
   }
 }

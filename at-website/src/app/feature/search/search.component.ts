@@ -9,18 +9,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchComponent implements OnInit {
 	articles: any;
 	searchData: any;
-  constructor(private _api: ApiService, private _route: ActivatedRoute) { }
+  constructor(
+    private _api: ApiService, private _route: ActivatedRoute
+  ) { 
+    this.articles = [];
+    this.searchData = '';
+  }
 
   ngOnInit() {
     this._route.queryParams.subscribe((data: any) => {
       this.searchData = data.condition;
+      this._api.get([END_POINT.searches + '?condition=' + this.searchData])
+      .subscribe((data: any) => {
+        this.articles = data.articles;
+      });
     }); 
-    console.log(this.searchData);
-    this._api.get([END_POINT.searches + '?condition=' + this.searchData])
-    .subscribe((data: any) => {
-      this.articles = data.searches;
-      console.log(data.searches);
-    });
   }
 
 }

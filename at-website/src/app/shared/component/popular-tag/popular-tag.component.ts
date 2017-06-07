@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiService, END_POINT } from '../../services/api.service';
 @Component({
   selector: 'app-popular-tag',
@@ -6,6 +6,7 @@ import { ApiService, END_POINT } from '../../services/api.service';
   styleUrls: ['./popular-tag.component.scss']
 })
 export class PopularTagComponent implements OnInit {
+  @Input() tagName: any;
   popularTags: any;
   constructor(private _api: ApiService) { 
     this.popularTags = [];

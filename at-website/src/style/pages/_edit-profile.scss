@@ -26,6 +26,15 @@
     .error-msg {
       display: none;
     }
+    label {
+      &.required {
+        &:after {
+          content: '*';
+          color: red;
+          margin-left: 1px;
+        }
+      }
+    }
   }
   .btn-update {
     margin-top: 30px;

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 	articles: any;
 	url: any;
   pager: any;
-  article_count: any;
+  article_count: number;
   sub: any;
   id: any;
   constructor(
@@ -26,17 +26,18 @@ export class HomeComponent implements OnInit {
   	this.articles = [];
     this.url = IMAGE_ROOT;
     this.pager = {};
-    
+    this.article_count = 0;
+    this.id = 0;
  	}
 
   ngOnInit() {
     this.sub = this._route.params.subscribe((params: any) => {
-      this.id = + params['id'];			
+      this.id = +params['id'];			
+      this.setPage(1);
     });
-    this.setPage(1);																			
   }
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.sub.unsubscribe();  
   }
   setPage(page: number) {
     if (this.id) {
