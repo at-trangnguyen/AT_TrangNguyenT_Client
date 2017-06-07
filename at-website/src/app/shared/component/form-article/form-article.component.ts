@@ -10,10 +10,11 @@ import { ApiService, END_POINT, IMAGE_ROOT } from '../../services/api.service';
 })
 
 export class FormArticleComponent implements OnInit {
-  articleForm: FormGroup;
   categories: any;
   param: string;
   article: any;
+  currentUser: any;
+  articleForm: FormGroup;
   category = new FormControl('',
     Validators.required
   );
@@ -33,8 +34,11 @@ export class FormArticleComponent implements OnInit {
     private _router: Router,
     private _api: ApiService
   ) { 
+    this.article = {};
     this.categories = [];
     this.param = this._route.snapshot.params.id;
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
   }
 
  ngOnInit() {
@@ -51,17 +55,21 @@ export class FormArticleComponent implements OnInit {
     if (this.param) {
       this._api.get([END_POINT.articles, this.param])
       .subscribe((data: any) => {
-        this.article = data.article;
-        this.category.setValue(data.article.category.id);
-        this.name.setValue(data.article.name);
-        this.detail.setValue(data.article.detail);
-        let tags = data.article.tags.map(function(tag) {
-          return tag.name;
-        });
-        if(tags) {
-          this.tag.setValue(tags.join());
+        if (this.currentUser.id === data.article.user.id) {
+          this.article = data.article;
+          this.category.setValue(data.article.category.id);
+          this.name.setValue(data.article.name);
+          this.detail.setValue(data.article.detail);
+          let tags = data.article.tags.map(function(tag) {
+            return tag.name;
+          });
+          if(tags) {
+            this.tag.setValue(tags.join());
+          }
+          this.imageSrc = IMAGE_ROOT + data.article.picture.url;
+        } else {
+          this._router.navigate(['/home']);
         }
-        this.imageSrc = IMAGE_ROOT + data.article.picture.url;
       });
     }
   }

@@ -1,10 +1,10 @@
 <div class="article-detail-page" *ngIf="article">
   <div class="container">
-    <app-category></app-category>
+    <app-navbar></app-navbar>
     <div class="col-md-9 main-content">
       <h2 class="article-name">{{article.name}}</h2>
       <div class="article-info">
-        <span> By <a routerLink="/profile/{{article.user.id}}" routerLinkActive="active" class="author-name">{{article.user.fullname}} </a> <span class="date">{{article.created_at | date:'medium'}}</span></span>
+        <span> By <a routerLink="/profile/{{article.user.id}}" routerLinkActive="active" class="author-name">{{article.user.fullname}} </a> <span class="date">{{article.created_at | date}}</span></span>
       </div>
       <div class="article-detail">
         <div class="article-image">
@@ -75,10 +75,10 @@
             <div class="comment-footer clearfix">
               <div class="comment-btn">
                 <button type="button" class="btn-save-cmt btn-comment-custom" (click)="updateComment(comment)">
-                  <span class="glyphicon glyphicon-floppy-saved"></span>
+                  Save
                 </button>
-                <button type="button" class="btn-save-cmt btn-comment-custom" (click)="cancleComment(comment.id)">
-                  <span class="glyphicon glyphicon-floppy-remove"></span>
+                <button type="button" class="btn-cancle-cmt btn-comment-custom" (click)="cancleComment(comment.id)">
+                  Cancle
                 </button>
               </div>
             </div>
@@ -101,13 +101,13 @@
                 </div>
               </div>
             </div>
-            <button class="btn btn-default follow-btn un-follow" *ngIf="!canEdit && article.followed" (click)="follow(article.user)">
+            <button class="btn btn-default follow-btn un-follow" *ngIf="!isCurrentUser && article.followed" (click)="follow(article.user)">
               <span class="btn-text">
               <span class="glyphicon glyphicon-ok glyphicon-custom"></span>
                 Unfollow 
               </span>
             </button>
-            <button class="btn btn-default follow-btn" *ngIf="!canEdit && !article.followed" (click)="follow(article.user)">
+            <button class="btn btn-default follow-btn" *ngIf="!isCurrentUser && !article.followed" (click)="follow(article.user)">
               <span class="btn-text">
                 <span class="glyphicon glyphicon-plus glyphicon-custom"></span>
                 Follow 

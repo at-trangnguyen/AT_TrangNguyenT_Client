@@ -10,7 +10,7 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 
 export class LoginComponent implements OnInit {
-  error = '';
+  error: string;
   email = new FormControl('', [
     Validators.required		
   ]);
@@ -24,7 +24,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private _builder: FormBuilder,
     private _router: Router,
-    private _authService: AuthService) { }
+    private _authService: AuthService
+  ) { 
+    this.error = '';
+  }
 
   ngOnInit() {
     this.loginForm = this._builder.group({

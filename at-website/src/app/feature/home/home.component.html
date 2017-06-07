@@ -3,13 +3,13 @@
     <div class="banner">
       <h1 class="banner-title">Chan Chan</h1>
     </div>
-    <app-category></app-category>
+    <app-navbar></app-navbar>
     <div class="row">
       <div class="col-md-9 main-content">
-        <div class="article" *ngIf="!articles">
+        <div class="article" *ngIf="!articles.length">
           No articles yet....
         </div>
-        <div class="article" *ngIf="articles">
+        <div class="article" *ngIf="articles.length">
           <app-article *ngFor="let article of articles" [item]="article"></app-article>
         </div>
         <div class="list-pagination">

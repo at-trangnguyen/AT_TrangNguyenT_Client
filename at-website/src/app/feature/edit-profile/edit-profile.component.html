@@ -14,6 +14,7 @@
               </div>
             </div>
             <div class="col-md-8">
+              <div *ngIf="error" class="alert alert-danger">{{error}}</div>
               <div class="form-group">
                 <label for="firstname" class="col-md-3 required">First Name: </label>
                 <div class="col-md-6">
@@ -44,9 +45,9 @@
               <div class="form-group">
                 <label for="gender" class="col-md-3 required">Gender: </label>
                 <div class="col-md-6">
-                  <label class="radio-inline"><input type="radio" value="1" name="gender" formControlName="gender">Female</label>
-                  <label class="radio-inline"><input type="radio" value="0" name="gender" formControlName="gender">Male</label>
-                  <label class="radio-inline"><input type="radio" value="2" name="gender" formControlName="gender">Other</label>
+                  <label class="radio-inline"><input type="radio" value="1" name="gender" formControlName="gender" [checked]="user.sex === 1 ? 'true' : 'false'">Female</label>
+                  <label class="radio-inline"><input type="radio" value="0" name="gender" formControlName="gender" [checked]="user.sex === 0 ? 'true' : 'false'">Male</label>
+                  <label class="radio-inline"><input type="radio" value="2" name="gender" formControlName="gender" [checked]="user.sex === 1 ? 'true' : 'false'">Other</label>
                   <span class="error-msg text-danger">
                     Gender is required !
                   </span>

@@ -9,12 +9,11 @@ import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./article-detail.component.scss']
 })
 export class ArticleDetailComponent implements OnInit {
-  id: number;
   article: any;
-  url: any = IMAGE_ROOT ;
+  url: any;
   param: string;
   currentUser: any;
-  loading: boolean = false;
+  loading: boolean;
   comments: any;
   isEditingID: number;
   contentEdit: any;
@@ -27,10 +26,13 @@ export class ArticleDetailComponent implements OnInit {
     private _authService: AuthService,
     private _builder: FormBuilder
   ) {
+    this.url = IMAGE_ROOT;
     this.param = this._route.snapshot.params.id;
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.comments = [];
     this.isEditingID = 0;
+    this.loading = false;
+    this.contentEdit = '';
   }
 
   ngOnInit() {
@@ -39,7 +41,7 @@ export class ArticleDetailComponent implements OnInit {
     }); 
     this._api.get([END_POINT.articles, this.param])
     .subscribe((data: any) => {
-      this.article = data.article;
+        this.article = data.article;
     });
     this.getComment();
   }
@@ -101,7 +103,7 @@ export class ArticleDetailComponent implements OnInit {
     if (this._authService.isLogin()) {
       this._api.post([END_POINT.articles, this.param, 'comments'], {content: this.content.value})
       .subscribe((data: any) => {
-        this.comments.push(data.comment);
+        this.comments.unshift(data.comment);
       });
       this.content.setValue('');
     } else {

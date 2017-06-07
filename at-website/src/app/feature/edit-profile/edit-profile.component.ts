@@ -9,11 +9,11 @@ import { ApiService, END_POINT, IMAGE_ROOT } from '../../shared/services/api.ser
 })
 export class EditProfileComponent implements OnInit {
 
-  editUserForm: FormGroup;
   user: any;
-  param: string;
   imageSrc: string;
   error: string;
+  currentUser: any;
+  editUserForm: FormGroup;
   avatar = new FormControl('');
   firstName = new FormControl('', [
     Validators.required,
@@ -46,7 +46,7 @@ export class EditProfileComponent implements OnInit {
     this.user = {};
     this.error = '';
     this.imageSrc = '';
-    this.param = this._route.snapshot.params.id;  
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
@@ -59,7 +59,7 @@ export class EditProfileComponent implements OnInit {
       old_password: this.old_password,
       new_password: this.new_password
     });
-    this._api.get([END_POINT.users, this.param])
+    this._api.get([END_POINT.users, this.currentUser.id.toString()])
     .subscribe((data: any) => {
       this.user = data.user;
       this.firstName.setValue(data.user.first_name);
@@ -69,11 +69,11 @@ export class EditProfileComponent implements OnInit {
     });
   }
   updateUser() {
-    this._api.put([END_POINT.users, this.param], this.createDataRequest())
+    this._api.put([END_POINT.users, this.currentUser.id.toString()], this.createDataRequest())
       .subscribe((data: any) => {
-        this._router.navigate(['/profile/' + this.param]);
+        this._router.navigate(['/profile/' + this.currentUser.id]);
       }, (error: any) => {
-        this.error = "Oldpassword is incorrect !"
+        this.error = "Old password is incorrect !"
       }
     );
   }

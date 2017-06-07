@@ -28,6 +28,7 @@ import { AvatarPipe } from './shared/pipes/avatar.pipe';
 import { AuthGuard } from './common/auth.guard';
 import { ApiService } from './shared/services/api.service';
 import { BtnLikeComponent } from './shared/component/btn-like/btn-like.component';
+import { ArticleByTagComponent } from './feature/article-by-tag/article-by-tag.component';
 const routes: Routes = [
   {
     path: '',
@@ -65,7 +66,7 @@ const routes: Routes = [
     component: ProfileComponent
   },
   { 
-    path: 'edit-profile/:id', 
+    path: 'edit-profile', 
     component: EditProfileComponent,
     canActivate: [AuthGuard]
   },
@@ -76,6 +77,9 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
+  }, {
+    path: 'tag/:id',
+    component: ArticleByTagComponent
   }
 ];
 export const routing = RouterModule.forRoot(routes);
@@ -99,7 +103,8 @@ export const routing = RouterModule.forRoot(routes);
     FormArticleComponent,
     PicturePipe,
     AvatarPipe,
-    BtnLikeComponent
+    BtnLikeComponent,
+    ArticleByTagComponent
   ],
   imports: [
     BrowserModule,

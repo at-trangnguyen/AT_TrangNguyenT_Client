@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
     private _authService: AuthService, 
     private _router: Router
   ) {
+    this.searchData = '';
   }
 
   ngOnInit() {

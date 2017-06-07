@@ -2,14 +2,38 @@
   <div class="container">
     <h1>Search Result</h1>
     <div class="col-md-9 main-content">
-      <!-- <app-article *ngFor="let article of articles" [item]="article"></app-article> -->
-      <div class="search-result">
-        <a href="" class="search-result-item">Trang Nguyen</a>
+      <div class="article" *ngIf="articles == undefined; else elseBlock" >
+        No articles yet....
       </div>
-    </div>
-    <aside class="col-md-3 sidebar">
-      <app-favorite-article></app-favorite-article>
-      <app-popular-tag></app-popular-tag> 
-    </aside>
+      <ng-template #elseBlock>
+        <div class="article">
+          <app-article *ngFor="let article of articles" [item]="article"></app-article>
+        </div>
+      </ng-template>
+      <!-- <div class="list-pagination">
+        <nav aria-label="Page navigation">
+          <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+              <a (click)="setPage(1)">First</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+              <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+              <a (click)="setPage(page)">{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+              <a (click)="setPage(pager.currentPage + 1)">Next</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+              <a (click)="setPage(pager.totalPages)">Last</a>
+            </li>
+          </ul>
+        </nav>
+      </div> -->
   </div>
+  <aside class="col-md-3 sidebar">
+    <app-favorite-article></app-favorite-article>
+    <app-popular-tag></app-popular-tag> 
+  </aside>
 </div>

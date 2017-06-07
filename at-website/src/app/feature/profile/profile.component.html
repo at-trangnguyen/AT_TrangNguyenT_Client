@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-8">
           <h2>{{user.fullname}}</h2>
-          <a routerLink="/edit-profile/{{user.id}}" routerLinkActive="active" class="btn btn-edit" *ngIf="isCurrentUser(user.id)">
+          <a routerLink="/edit-profile" routerLinkActive="active" class="btn btn-edit" *ngIf="isCurrentUser(user.id)">
             <span class="glyphicon glyphicon-cog"></span>
             <span> Edit Profile</span>
           </a>
@@ -28,7 +28,12 @@
     </div>
   </div>
   <div class="container">
-    <app-article *ngFor="let article of articles" [item]="article"></app-article>
+    <div class="article" *ngIf="!articles.length">
+      No articles yet....
+    </div>
+    <div class="article" *ngIf="articles.length">
+      <app-article *ngFor="let article of articles" [item]="article"></app-article>
+    </div>
     <div class="list-pagination">
       <nav aria-label="Page navigation">
         <ul *ngIf="pager.pages && pager.pages.length" class="pagination">

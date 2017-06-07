@@ -35,7 +35,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this._api.get([END_POINT.users,this.param])
     .subscribe((data: any) => {
-      console.log(data.user);
       this.user = data.user;
     });
     this._api.get([END_POINT.users, this.param, 'articles'])

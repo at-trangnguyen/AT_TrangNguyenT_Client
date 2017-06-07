@@ -9,12 +9,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ArticleComponent implements OnInit {
   @Input() item: any;
-  url: any = IMAGE_ROOT;
-  pager: any = {};
-  loading: boolean = false;
-  article_count: any;
-  param: string;
-  location: any;
+  url: any;
+  loading: boolean;
   constructor(
     private _api: ApiService,
     private _authService: AuthService,
@@ -22,6 +18,8 @@ export class ArticleComponent implements OnInit {
     private _router: Router
   ) { 
     this.item = {};
+    this.url = IMAGE_ROOT;
+    this.loading = false;
   }
 
   ngOnInit() {
